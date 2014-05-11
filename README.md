@@ -17,30 +17,40 @@ USER=uuuuuu
 PASS=ppppp
 
 # -i turns off interactive prompting. -n no auto-login. -v verbose
-ftp -inv $HOST << EOF
+# folders must exist and cannot have subfolders
 
+ftp -inv $HOST << EOF
 user $USER $PASS
 
 cd public_html/
-lcd html
+lcd html/
 mdelete *
 mput *
 lcd ..
-
-# folders must exist and cannot have subfolders
-mdelete static/*
-mput static/*
-
-mdelete media/*
-mput media/*
-
-mdelete js/*
-mput js/*
-
-mdelete scripts/*
-mput scripts/*
-
-
-# get test.txt
+cd static/
+lcd static/
+mdelete *
+mput *
+cd ..
+lcd ..
+cd media/
+lcd media/
+mdelete *
+mput *
+cd ..
+lcd ..
+cd js/
+lcd js/
+mdelete *
+mput *
+cd ..
+lcd ..
+cd scripts/
+lcd scripts/
+mdelete *
+mput *
+cd ..
+lcd ..
 bye
 EOF
+
