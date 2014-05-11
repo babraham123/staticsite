@@ -22,27 +22,25 @@ ftp -inv $HOST << EOF
 user $USER $PASS
 
 cd public_html/
+lcd html
 mdelete *
-mput html/*
+mput *
+lcd ..
 
 # folders must exist and cannot have subfolders
-cd static/
-mdelete *
+mdelete static/*
 mput static/*
 
-cd ../media/
-mdelete *
+mdelete media/*
 mput media/*
 
-cd ../js/
-mdelete *
+mdelete js/*
 mput js/*
 
-cd ../scripts/
-mdelete *
+mdelete scripts/*
 mput scripts/*
 
-cd ../
+
 # get test.txt
 bye
 EOF
