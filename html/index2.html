@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional website.">
+  <meta name="author" content="Bereket Abraham">
+
+  <link rel="icon" href="static/favicon.ico" type="image/x-icon" >
+  <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon" >
+
+  <!-- styles -->
+  <link rel=stylesheet type=text/css href="static/mod.css">
+  <link rel=stylesheet type=text/css href="static/bootstrap-responsive.min.css">
+  <link rel=stylesheet type=text/css href="static/personal.css">
+  <link rel=stylesheet type=text/css href="static/blog.css">
+
+</head>
+
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top nav-custom">
+    <div class="navbar-inner">
+      <div class="container">
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active"><a href="/"><b>BEREKET ABRAHAM</b></a></li>
+            <li><a href="/project/">PROJECTS</a></li>
+            <li><a href="/blog/">BLOG</a></li>
+            <li><a href="/contact/">CONTACT</a></li>
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+  <div class="container">
+
+    <br />
+    <h1>Table 1: Awesome</h1>
+
+    <br />
+    <p>
+      <button class="btn btn-primary" id="connect" style="margin-right:20px">Connect to Server</button>
+      <button class="btn btn-danger" id="close">Close</button>
+      <button class="btn btn-success" id="send">Send Data</button>
+    </p>
+    <br />
+
+    <textarea class="span12" id="data_input" rows="6">
+    000:FF0000 001:00FF00 002:0000FF
+    </textarea>
+
+
+    <script type="text/javascript">
+      // transfer data from django to javascript
+      var data = {};
+      data.ip = "68.173.83.103";
+      data.port = "8383";
+    </script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="static/lightgrid.js"></script>
+
+
+  </div>
+</body>
