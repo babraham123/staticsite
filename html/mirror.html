@@ -17,16 +17,8 @@
 </head>
 <body>
 
-  <!-- <div style="display:none;"> -->
-    <video id="localVideo" autoplay></video>
-    <video id="remoteVideo" autoplay></video>
 
-    <div>
-      <button class="btn btn-info" id="start">Start</button>
-      <button class="btn btn-success" id="call">Call</button>
-      <button class="btn btn-warning" id="hangup">Hang Up</button>
-    </div>
-  
+  <video id="selfVideo"></video>
   <br />
   <div class="alert alert-warning" id="infoBox">-</div>
 
@@ -37,9 +29,11 @@
 $(document).ready(function() {
 
   navigator.getUserMedia = navigator.getUserMedia ||
-    navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+  navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
   var constraints = {audio: true, video: true};
+  var info = $('#infoBox');
+  info.text('Starting');
 
   function successCallback(localMediaStream) {
     window.stream = localMediaStream; // stream available to console
@@ -48,19 +42,18 @@ $(document).ready(function() {
     //var video = document.getElementById("selfVideo");
     video.src = window.URL.createObjectURL(localMediaStream);
     video.play();
-    console.log('playing...');
+    info.text('playing...');
   }
 
   //window.stream.stop()
   function errorCallback(error){
-    console.log("navigator.getUserMedia error: ", error);
+    info.text("navigator.getUserMedia error: ", error);
   }
 
   navigator.getUserMedia(constraints, successCallback, errorCallback);
 
 
 });
-
 
   </script>
 </body>
